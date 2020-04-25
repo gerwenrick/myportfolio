@@ -10,6 +10,7 @@
     </b-row>
     <b-pagination
       v-model="currentPage"
+      pills
       :total-rows="rows"
       :per-page="perPage"
       first-text="First"
@@ -26,7 +27,7 @@ import PortfolioCard from "@/components/PortfolioCard.vue";
 import { mapGetters } from "vuex";
 
 export default {
-  name: "home",
+  name: "portfolio",
   async mounted() {
     this.fetchData();
   },

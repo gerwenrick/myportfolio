@@ -1,54 +1,69 @@
 <template>
-  <b-container>
-    <b-row align-v="center">
-      <portfolio-card
-        v-for="portfolioItem in displayPortfolioItems"
-        :key="portfolioItem.id"
-        :name="portfolioItem.name"
-        :id="portfolioItem.id"
-      ></portfolio-card>
-    </b-row>
-    <b-pagination
-      v-model="currentPage"
-      :total-rows="rows"
-      :per-page="perPage"
-      first-text="First"
-      prev-text="Prev"
-      next-text="Next"
-      last-text="Last"
-      @input="paginate(currentPage)"
-    ></b-pagination>
-  </b-container>
+  <div>
+    <div id="header">
+      <div class="header-block">
+        <div class="header-block-content">
+          <p>I am Rick van Gerwen</p>
+          <p>UX / UI Developer</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <h3>Testimonial</h3>
+    </div>
+  </div>
 </template>
 
 <script>
-import PortfolioCard from "@/components/PortfolioCard.vue";
-import { mapGetters } from "vuex";
-
 export default {
-  name: "home",
-  async mounted() {
-    this.fetchData();
-  },
-  data() {
-    return {
-      currentPage: 1,
-      perPage: 3
-    };
-  },
-  components: {
-    "portfolio-card": PortfolioCard
-  },
-  computed: {
-    ...mapGetters(["portfolioItems", "displayPortfolioItems", "rows"])
-  },
-  methods: {
-    paginate(currentPage) {
-      this.$store.dispatch("paginate", { currentPage, perPage: this.perPage });
-    },
-    async fetchData() {
-      await this.$store.dispatch("fetchPortfolioItems");
-    }
-  }
+  name: "home"
 };
 </script>
+
+<style lang="scss" scoped>
+#header {
+  height: 80vh;
+  min-height: 300px;
+  width: 100%;
+  font-size: 3rem;
+
+  .header-block {
+    background-image: url("../assets/images/mountain-bg.png");
+    background-position: center;
+    background-position-y: 15%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+    padding: 15rem 0;
+
+    &:before {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .header-block-content {
+      box-sizing: border-box;
+      top: 0;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      p:nth-child(2) {
+        font-size: 0.8em;
+      }
+    }
+  }
+}
+</style>

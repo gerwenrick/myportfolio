@@ -5,34 +5,49 @@
     </div>
     <div id="nav">
       <top-header />
-      <!-- <router-link to="/">Home</router-link> -->
-      <!-- <router-link to="/about">About</router-link> -->
     </div>
     <router-view />
+    <bottom-footer />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import TopHeader from "@/components/TopHeader.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   computed: {
     ...mapGetters(["showSpinner"])
   },
   components: {
-    "top-header": TopHeader
+    "top-header": TopHeader,
+    "bottom-footer": Footer
   }
 };
 </script>
 
 <style lang="scss">
+@import "assets/custom-colors.scss";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  color: black;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 #nav {
   a {
