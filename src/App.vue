@@ -38,9 +38,17 @@ export default {
   box-sizing: border-box;
 }
 
-html,
+html {
+  overflow: hidden;
+  color: #000000;
+}
+
 body {
-  color: black;
+  height: 100vh;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #app {
