@@ -9,79 +9,78 @@
       </div>
     </div>
 
-    <div class="testimonial">
-      <h3>Testimonial</h3>
+    <div class="content">
+      <div class="testimonial">
+        <h2>Testimonial</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem fuga soluta vel quasi non molestias adipisci nemo nulla beatae maiores cum dicta deleniti ea nam illo maxime quibusdam, commodi repudiandae sapiente quod nostrum porro temporibus tempore! Et, iusto autem porro, hic dolor deserunt accusamus in consequatur sapiente mollitia consequuntur. Dolorem eius asperiores iusto aperiam placeat delectus nesciunt ex, ullam reiciendis, rem magnam fugit quo repudiandae veniam. Blanditiis dicta quod dolorem a ipsa dolor fugiat expedita ullam perferendis, iste enim, aliquam aspernatur tempore, rerum voluptatibus dolores quam? Numquam aliquam culpa tempora, dolor porro unde praesentium maiores repudiandae, quos repellendus commodi harum.</p>
+      </div>
+
+      <div class="portfolio">
+        <h2>Portfolio</h2>
+        <b-container>
+          <b-row align-v="center">
+            <portfolio-card
+              v-for="portfolioItem in displayPortfolioItems"
+              :key="portfolioItem.id"
+              :name="portfolioItem.name"
+              :id="portfolioItem.id"
+            ></portfolio-card>
+          </b-row>
+        </b-container>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import PortfolioCard from "@/components/PortfolioCard.vue";
+import { mapGetters } from "vuex";
+
 export default {
-  name: "home"
+  name: "home",
+  async mounted() {
+    this.fetchData();
+  },
+  data() {
+    return {
+      currentPage: 1,
+      perPage: 3
+    };
+  },
+  components: {
+    "portfolio-card": PortfolioCard
+  },
+  computed: {
+    ...mapGetters(["portfolioItems", "displayPortfolioItems", "rows"])
+  },
+  methods: {
+    paginate(currentPage) {
+      this.$store.dispatch("paginate", { currentPage, perPage: this.perPage });
+    },
+    async fetchData() {
+      await this.$store.dispatch("fetchPortfolioItems");
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 #header {
-  height: 100vh;
-  min-height: 300px;
-  width: 100%;
-  font-size: 3rem;
-  position: relative;
-  transform-style: inherit;
-  background: 50% 50% / cover;
+  max-height: 1000px;
 
   &::before {
-    background: 50% 0% / cover;
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    display: block;
     background-image: url("../assets/images/mountain-bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    transform-origin: center center;
-    transform: translateZ(-1px) scale(2);
-    z-index: -1;
-    height: 100vh;
-    width: 100vw;
-  }
-
-  &::after {
-    display: block;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(250, 250, 250, 0.6);
   }
 
   .header-block-content {
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 20rem;
-    z-index: 2;
-    position: relative;
-
-    p:nth-child(2) {
-      font-size: 0.8em;
-    }
+    // padding-bottom: 50%;
   }
 }
 
+.content {
+  margin-top: -10rem;
+}
+
 .testimonial {
-  height: 1000px;
-  background-color: rgba(250, 250, 250, 1);
 }
 </style>
