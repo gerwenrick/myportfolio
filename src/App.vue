@@ -153,9 +153,37 @@ body {
   justify-content: center;
   width: calc(100% - 2vw);
   margin: 0 1vw;
-  padding: 2rem 5rem 3rem;
+  padding: 2rem 1rem 3rem;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   border-radius: 0.2rem;
   background-color: #fefefe;
+
+  & > div {
+    margin: auto;
+    max-width: 1200px;
+  }
+}
+
+#portfolio-container {
+  width: 100%;
+
+  // .row {
+  //   width: 100%;
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  // }
+
+  .row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  .portfolio-card {
+    max-width: 350px;
+    min-width: 250px;
+    width: 33%;
+    flex: 1 1 auto;
+  }
 }
 </style>

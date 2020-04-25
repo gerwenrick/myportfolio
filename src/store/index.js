@@ -7,6 +7,7 @@ export default new Vuex.Store({
 	state: {
 		portfolioItems: [],
 		displayPortfolioItems: [],
+		homePortfolioItems: [],
 		rows: 0,
 		showSpinner: false,
 	},
@@ -16,6 +17,9 @@ export default new Vuex.Store({
 		},
 		SET_DISPLAY_PORTFOLIOITEMS(state, displayPortfolioItems) {
 			state.displayPortfolioItems = displayPortfolioItems;
+		},
+		SET_HOME_PORTFOLIOITEMS(state, homePortfolioItems) {
+			state.homePortfolioItems = homePortfolioItems;
 		},
 		SET_ROWS(state, rows) {
 			state.rows = rows;
@@ -45,13 +49,15 @@ export default new Vuex.Store({
 			const myJson = await dispatch('fetchData');
 			commit('SET_PORTFOLIOITEMS', myJson);
 			commit('SET_ROWS', myJson.length);
-			const displayPortfolioItems = myJson.slice(0, 3);
+			const displayPortfolioItems = myJson.slice(0, 10);
 			commit('SET_DISPLAY_PORTFOLIOITEMS', displayPortfolioItems);
+			const homePortfolioItems = myJson.slice(0, 3);
+			commit('SET_HOME_PORTFOLIOITEMS', homePortfolioItems);
 			commit('SET_ROWS', myJson.length);
 		},
 		async paginate({ commit, state }, { currentPage, perPage }) {
 			const start = (currentPage - 1) * perPage;
-			const portfolioItems = state.portfolioItems.slice(start, start + 3);
+			const portfolioItems = state.portfolioItems.slice(start, start + 10);
 			commit('SET_DISPLAY_PORTFOLIOITEMS', portfolioItems);
 		},
 
@@ -73,6 +79,9 @@ export default new Vuex.Store({
 		},
 		displayPortfolioItems(state) {
 			return state.displayPortfolioItems;
+		},
+		homePortfolioItems(state) {
+			return state.homePortfolioItems;
 		},
 		rows(state) {
 			return state.rows;

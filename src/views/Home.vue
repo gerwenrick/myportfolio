@@ -17,10 +17,11 @@
 
       <div class="portfolio">
         <h2>Portfolio</h2>
-        <b-container>
+        <b-container id="portfolio-container">
           <b-row align-v="center">
             <portfolio-card
-              v-for="portfolioItem in displayPortfolioItems"
+              class="portfolio-card"
+              v-for="portfolioItem in homePortfolioItems"
               :key="portfolioItem.id"
               :name="portfolioItem.name"
               :id="portfolioItem.id"
@@ -51,12 +52,12 @@ export default {
     "portfolio-card": PortfolioCard
   },
   computed: {
-    ...mapGetters(["portfolioItems", "displayPortfolioItems", "rows"])
+    ...mapGetters(["portfolioItems", "homePortfolioItems", "rows"])
   },
   methods: {
-    paginate(currentPage) {
-      this.$store.dispatch("paginate", { currentPage, perPage: this.perPage });
-    },
+    // paginate(currentPage) {
+    //   this.$store.dispatch("paginate", { currentPage, perPage: this.perPage });
+    // },
     async fetchData() {
       await this.$store.dispatch("fetchPortfolioItems");
     }
@@ -73,7 +74,7 @@ export default {
   }
 
   .header-block-content {
-    // padding-bottom: 50%;
+    padding-top: 20rem;
   }
 }
 
@@ -81,6 +82,8 @@ export default {
   margin-top: -10rem;
 }
 
+.portfolio,
 .testimonial {
+  width: 100%;
 }
 </style>
