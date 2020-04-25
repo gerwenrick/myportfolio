@@ -151,8 +151,8 @@ body {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  width: calc(100% - 2vw);
-  margin: 0 1vw;
+  width: calc(100% - 4vw);
+  margin: 0 2vw;
   padding: 2rem 1rem 3rem;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   border-radius: 0.2rem;
