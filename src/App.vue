@@ -60,19 +60,12 @@ body {
   top: 0;
   width: 100%;
   z-index: 999;
-
-  a {
-    margin: 0 10px;
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  background-color: rgba(255, 255, 255, 0.9);
 }
+
 .page {
   position: absolute;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.1);
   z-index: 25;
   width: 100%;
   height: 100%;

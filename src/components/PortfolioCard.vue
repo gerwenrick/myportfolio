@@ -15,9 +15,6 @@
           v-b-tooltip.hover
           title="Look into it!"
         >Details</b-button>
-        <b-modal :id="modalId" title="BootstrapVue">
-          <p class="my-4">Hello from modal!</p>
-        </b-modal>
       </b-card>
     </b-col>
   </div>
@@ -25,12 +22,7 @@
 
 <script>
 export default {
-  props: ["name", "id"],
-  computed: {
-    modalId() {
-      return `modal-${this.id}`;
-    }
-  }
+  props: ["name", "id"]
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar toggleable="lg" type="dark">
       <b-navbar-brand href="/"></b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -40,7 +40,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#nav a.router-link-exact-active {
-  color: #ffffff;
+#nav {
+  a {
+    color: #2c3e50;
+    margin: 0 10px;
+    font-weight: bold;
+
+    &.router-link-exact-active {
+      text-decoration: underline;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 </style>
