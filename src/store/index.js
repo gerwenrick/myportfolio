@@ -9,7 +9,6 @@ export default new Vuex.Store({
 		displayPortfolioItems: [],
 		homePortfolioItems: [],
 		rows: 0,
-		showSpinner: false,
 	},
 	mutations: {
 		SET_PORTFOLIOITEMS(state, portfolioItems) {
@@ -24,19 +23,14 @@ export default new Vuex.Store({
 		SET_ROWS(state, rows) {
 			state.rows = rows;
 		},
-		SET_SPINNER(state, spinner) {
-			state.showSpinner = spinner;
-		},
 	},
 	actions: {
-		async fetchData({ commit }) {
-			commit('SET_SPINNER', true);
+		async fetchData() {
 			return new Promise((resolve) => {
 				setTimeout(async () => {
 					const res = await fetch('portfolio.json');
 					const val = await res.json();
 					resolve(val);
-					commit('SET_SPINNER', false);
 				}, 0);
 			});
 		},
@@ -85,9 +79,6 @@ export default new Vuex.Store({
 		},
 		rows(state) {
 			return state.rows;
-		},
-		showSpinner(state) {
-			return state.showSpinner;
 		},
 	},
 	modules: {},

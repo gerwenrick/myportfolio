@@ -9,12 +9,6 @@
         class="mb-2"
       >
         <b-card-text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim, error.</b-card-text>
-        <b-button
-          v-b-modal="modalId"
-          variant="primary"
-          v-b-tooltip.hover
-          title="Look into it!"
-        >Details</b-button>
       </b-card>
     </b-col>
   </div>
@@ -22,7 +16,7 @@
 
 <script>
 export default {
-  props: ["name", "id"]
+  props: ["name", "id", "image"]
 };
 </script>
 

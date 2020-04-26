@@ -19,13 +19,13 @@
         <h2>Portfolio</h2>
         <b-container id="portfolio-container">
           <b-row align-v="center">
-            <portfolio-card
+            <PortfolioCard
               class="portfolio-card"
               v-for="portfolioItem in homePortfolioItems"
               :key="portfolioItem.id"
               :name="portfolioItem.name"
               :id="portfolioItem.id"
-            ></portfolio-card>
+            ></PortfolioCard>
           </b-row>
         </b-container>
       </div>
@@ -49,7 +49,7 @@ export default {
     };
   },
   components: {
-    "portfolio-card": PortfolioCard
+    PortfolioCard
   },
   computed: {
     ...mapGetters(["portfolioItems", "homePortfolioItems", "rows"])
@@ -74,7 +74,7 @@ export default {
   }
 
   .header-block-content {
-    padding-top: 20rem;
+    padding-top: 30vh;
   }
 }
 

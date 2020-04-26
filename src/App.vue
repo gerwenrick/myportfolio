@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div class="page" v-if="showSpinner">
+    <!-- <div class="page" v-if="showSpinner">
       <b-spinner class="spinner" variant="primary" type="grow" :key="primary"></b-spinner>
-    </div>
+    </div>-->
     <div id="nav">
       <top-header />
     </div>
@@ -12,14 +12,11 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+// import { mapGetters } from "vuex";
 import TopHeader from "@/components/TopHeader.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
-  computed: {
-    ...mapGetters(["showSpinner"])
-  },
   components: {
     "top-header": TopHeader,
     "bottom-footer": Footer
@@ -28,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "assets/custom-colors.scss";
+@import "assets/custom.scss";
 
 *,
 *::before,
@@ -129,7 +126,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 15rem;
+    padding-top: 25vh;
     z-index: 2;
     position: relative;
 

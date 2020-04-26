@@ -20,6 +20,11 @@ const routes = [
 		name: 'portfolio',
 		component: () => import('../views/Portfolio.vue'),
 	},
+	{
+		path: '/portfolio/portfoliodetail/:id',
+		name: 'portfoliodetail',
+		component: () => import('../views/PortfolioDetail.vue'),
+	},
 ];
 
 const router = new VueRouter({
