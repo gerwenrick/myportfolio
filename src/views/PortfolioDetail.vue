@@ -18,8 +18,8 @@
           <li>{{portfolioItemName}}</li>
           <li>{{portfolioItemDescription}}</li>
           <li>
-            <img :src="portfolioItemImage" :alt="portfolioItemName" />
-            <!-- <img :src="require(`@/assets/images/${portfolioItemImage}`)" alt="portfolioItemName" /> -->
+            <!-- <img :src="portfolioItemImage" :alt="portfolioItemName" /> -->
+            <img :src="require(`@/assets/images/${portfolioItemImage}`)" alt="portfolioItemName" />
           </li>
         </ul>
       </div>
@@ -30,7 +30,8 @@
 </template>
 
 <script>
-import store from "../store";
+// import store from "../store";
+import { mapGetters } from "vuex";
 
 export default {
   data() {
@@ -42,11 +43,12 @@ export default {
     };
   },
   computed: {
-    portfolioitem() {
-      return store.portfolioItems.find(
-        portfolioitem => portfolioitem.id === this.portfolioItemId
-      );
-    }
+    ...mapGetters(["portfolioItems", "displayPortfolioItems", "rows"])
+    // portfolioitem() {
+    //   return store.portfolioItems.find(
+    //     portfolioitem => portfolioitem.id === this.portfolioItemId
+    //   );
+    // }
   }
 };
 </script>
