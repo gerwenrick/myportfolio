@@ -21,7 +21,7 @@ const routes = [
 		component: () => import('../views/Portfolio.vue'),
 	},
 	{
-		path: '/portfolio/portfoliodetail/:id',
+		path: '/portfolio/:id',
 		name: 'portfoliodetail',
 		component: () => import('../views/PortfolioDetail.vue'),
 		props: true,
