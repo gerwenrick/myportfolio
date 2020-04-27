@@ -24,6 +24,7 @@ const routes = [
 		path: '/portfolio/portfoliodetail/:id',
 		name: 'portfoliodetail',
 		component: () => import('../views/PortfolioDetail.vue'),
+		props: true,
 	},
 ];
 

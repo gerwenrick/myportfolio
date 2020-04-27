@@ -18,7 +18,7 @@
           <li>{{portfolioItemName}}</li>
           <li>{{portfolioItemDescription}}</li>
           <li>
-            <img :src="portfolioBackgroundImage" :alt="portfolioItemName" />
+            <img :src="portfolioItemImage" :alt="portfolioItemName" />
             <!-- <img :src="require(`@/assets/images/${portfolioItemImage}`)" alt="portfolioItemName" /> -->
           </li>
         </ul>
