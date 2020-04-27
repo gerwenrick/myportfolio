@@ -47,7 +47,7 @@
             class="portfolio-card"
           >
             <router-link
-              :to="{name: 'portfolioDetail' , params: {id: portfolioItem.id, name: portfolioItem.name, image: portfolioItem.image, description:portfolioItem.description}}"
+              :to="{name: 'portfoliodetail' , params: {id: portfolioItem.id, name: portfolioItem.name, image: portfolioItem.image, description:portfolioItem.description}}"
               exact
             >
               <div class="card-img">

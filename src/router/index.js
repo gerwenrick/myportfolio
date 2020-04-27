@@ -18,13 +18,14 @@ const routes = [
 	{
 		path: '/portfolio',
 		name: 'portfolio',
+		props: true,
 		component: () => import('../views/Portfolio.vue'),
 	},
 	{
 		path: '/portfolio/:id',
-		name: 'portfoliodetail',
-		component: () => import('../views/PortfolioDetail.vue'),
+		name: 'portfolioDetail',
 		props: true,
+		component: () => import('../views/PortfolioDetail.vue'),
 	},
 ];
 
