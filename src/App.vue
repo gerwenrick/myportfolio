@@ -101,7 +101,7 @@ body {
     right: 0;
     top: 0;
     display: block;
-    background-image: url("https://images.unsplash.com/photo-1578491133524-f33d9c7a7484?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1323&q=80");
+    background-image: url("./assets/images/mountain-bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     transform-origin: center center;
@@ -143,8 +143,70 @@ body {
   margin-top: -10rem;
 
   & > div {
+    width: 100%;
     margin: auto;
     max-width: 1200px;
+  }
+}
+
+section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 5rem;
+
+  &:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  position: relative;
+  text-decoration: none !important;
+  color: inherit;
+  transition: 0.1s cubic-bezier(0.33, 0.66, 0.66, 1);
+  z-index: 1;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 105%;
+    height: 10%;
+    bottom: 0%;
+    left: -2.5%;
+    transform: translate(50% 50%);
+    background-color: black;
+    transition: $transition;
+    z-index: 0;
+  }
+
+  &:hover {
+    color: #ffffff;
+    z-index: 1;
+
+    &::after {
+      height: 100%;
+      z-index: -1;
+    }
+  }
+
+  &.back-btn {
+    display: inline-flex;
+    align-self: center;
+
+    &:hover {
+      svg {
+        fill: white;
+      }
+    }
+
+    svg {
+      height: 1em;
+      width: 1em;
+      top: 0.125em;
+      position: relative;
+      margin-right: 5px;
+    }
   }
 }
 
@@ -162,6 +224,59 @@ body {
     min-width: 250px;
     width: 33%;
     flex: 1 1 auto;
+  }
+}
+.card-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  a {
+    color: inherit !important;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .card {
+    flex: 0 1 23%;
+    max-width: 18rem;
+    transition: $transition;
+
+    &:hover {
+      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2),
+        0 3px 12px 0 rgba(0, 0, 0, 0.15);
+      transform: translateY(-0.2rem);
+    }
+
+    &:active {
+      transform: translateY(0rem);
+    }
+
+    .card-body {
+      img {
+        object-fit: fill;
+        width: 100%;
+        height: 100%;
+      }
+
+      &:nth-child(1) {
+        padding: 0;
+      }
+      &:nth-child(2) {
+        position: relative;
+        padding: 0 1.25rem 1.25rem 1.25rem;
+        margin-top: -2.1rem;
+        height: auto;
+        width: 100%;
+
+        h2 {
+          text-shadow: 0 1px #000000;
+          color: white;
+        }
+      }
+    }
   }
 }
 </style>

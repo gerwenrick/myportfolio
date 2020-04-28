@@ -26,6 +26,7 @@
           <b-nav-item :to="{name: 'home'}" exact>Home</b-nav-item>
           <b-nav-item :to="{name: 'portfolio'}" exact>Portfolio</b-nav-item>
           <b-nav-item :to="{name: 'about'}" exact>About</b-nav-item>
+          <b-nav-item :to="{name: 'contact'}" exact>Contact</b-nav-item>
           <b-nav-item :to="{name: 'test'}" exact>Test</b-nav-item>
         </b-navbar-nav>
 
@@ -57,10 +58,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/custom.scss";
+
 #nav {
   a {
     padding: 10px;
-    color: #212529;
+    color: $text-color;
     font-weight: 700;
     text-shadow: none;
     transition: color 0.2s;
@@ -71,7 +74,7 @@ export default {
       left: 0;
       width: 100%;
       height: 2px;
-      background: #000000;
+      background: $text-color;
       content: "";
       opacity: 0;
       transition: opacity 0.2s, transform 0.2s;

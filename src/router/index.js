@@ -32,6 +32,20 @@ const routes = [
 		name: 'test',
 		component: () => import('../views/Test.vue'),
 	},
+	{
+		path: '/contact',
+		name: 'contact',
+		component: () => import('../views/Contact.vue'),
+	},
+	{
+		path: '/404',
+		name: '404',
+		component: () => import('../views/NotFound.vue'),
+	},
+	{
+		path: '*',
+		redirect: '/404',
+	},
 ];
 
 const router = new VueRouter({

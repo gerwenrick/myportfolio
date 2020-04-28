@@ -54,13 +54,19 @@ footer {
   align-items: center;
   justify-content: center;
 
-  .row .icon-row {
+  .icon-row {
+    display: inline-block;
     margin: 0.3rem;
     font-size: 0.9rem;
-    display: flex;
-    flex-flow: column nowrap;
+
+    a {
+      &::after {
+        display: none;
+      }
+    }
   }
 }
+
 .footer-icon {
   height: 36px;
   width: auto;
@@ -70,7 +76,6 @@ footer {
   transition: 0.1s ease-in-out;
 
   &:hover {
-    fill: #0072b1;
     transform: scale(1.1);
     opacity: 1;
   }

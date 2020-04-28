@@ -14,7 +14,7 @@
 
     <div class="content">
       <div class="row">
-        <router-link :to="{name: 'portfolio'}" style="font-size:3em;">Terug</router-link>
+        <router-link :to="{name: 'portfolio'}" class="back-btn">Back to overview</router-link>
       </div>
       <div class="row">
         <ul>
