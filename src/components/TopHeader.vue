@@ -27,7 +27,6 @@
           <b-nav-item :to="{name: 'portfolio'}" exact>Portfolio</b-nav-item>
           <b-nav-item :to="{name: 'about'}" exact>About</b-nav-item>
           <b-nav-item :to="{name: 'contact'}" exact>Contact</b-nav-item>
-          <b-nav-item :to="{name: 'test'}" exact>Test</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items  -->
