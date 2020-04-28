@@ -1,6 +1,7 @@
 <template>
   <div>
     <div id="header">
+      <div class="header-img"></div>
       <div class="header-block">
         <div class="header-block-content">
           <p>I am Rick van Gerwen</p>
@@ -69,17 +70,13 @@ export default {
 #header {
   max-height: 1000px;
 
-  &::before {
+  .header-img {
     background-image: url("../assets/images/mountain-bg.png");
   }
 
   .header-block-content {
     padding-top: 30vh;
   }
-}
-
-.content {
-  margin-top: -10rem;
 }
 
 .portfolio,

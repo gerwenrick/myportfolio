@@ -1,6 +1,10 @@
 <template>
   <div>
     <div id="header">
+      <div
+        class="header-img"
+        :style="{ backgroundImage: 'url(' + require(`@/assets/images/${portfolioItemImage}`) + ')' }"
+      ></div>
       <div class="header-block">
         <div class="header-block-content">
           <p>{{portfolioItemName}}</p>
@@ -17,8 +21,8 @@
           <li>{{portfolioItemId}}</li>
           <li>{{portfolioItemName}}</li>
           <li>{{portfolioItemDescription}}</li>
+          <li>{{portfolioItemScore}}</li>
           <li>
-            <!-- <img :src="portfolioItemImage" :alt="portfolioItemName" /> -->
             <img :src="require(`@/assets/images/${portfolioItemImage}`)" alt="portfolioItemName" />
           </li>
         </ul>
@@ -34,34 +38,23 @@
 import { mapGetters } from "vuex";
 
 export default {
+  name: "portfoliodetail",
   data() {
     return {
       portfolioItemId: this.$route.params.id,
       portfolioItemName: this.$route.params.name,
       portfolioItemImage: this.$route.params.image,
-      portfolioItemDescription: this.$route.params.description
+      portfolioItemDescription: this.$route.params.description,
+      portfolioItemScore: this.$route.params.score
     };
   },
   computed: {
     ...mapGetters(["portfolioItems", "displayPortfolioItems", "rows"])
-    // portfolioitem() {
-    //   return store.portfolioItems.find(
-    //     portfolioitem => portfolioitem.id === this.portfolioItemId
-    //   );
-    // }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-#header {
-  max-height: 500px;
-
-  &::before {
-    // background-image: url("../assets/images/mountain-bg.png");
-  }
-}
-
 .row img {
   max-width: 350px;
 }

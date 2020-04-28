@@ -1,6 +1,7 @@
 <template>
   <div>
     <div id="header">
+      <div class="header-img"></div>
       <div class="header-block">
         <div class="header-block-content">
           <p>Portfolio</p>
@@ -8,151 +9,100 @@
       </div>
     </div>
     <div class="content">
-      <div>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate odit debitis reprehenderit molestiae hic ratione, harum blanditiis porro minus illo pariatur commodi? Illo, harum architecto! Mollitia, blanditiis! Quod ad non aut. Omnis, explicabo. Maiores asperiores dignissimos et, qui, nisi cum vel laborum quis, eaque consequatur quibusdam quos nihil molestiae? Perferendis!</p>
+      <div class="row">
+        <h1>This is a portfolio page</h1>
       </div>
-      <b-container id="portfolio-container">
-        <b-row align-v="center" class="mb-2">
-          <!-- <b-pagination
-            v-model="currentPage"
-            pills
-            :total-rows="rows"
-            :per-page="perPage"
-            first-text="First"
-            prev-text="Prev"
-            next-text="Next"
-            last-text="Last"
-            @input="paginate(currentPage)"
-          ></b-pagination>-->
-          <b-navbar-nav>
-            <b-nav-form @submit.prevent="search">
-              <b-form-input size="sm" class="mr-sm-2" placeholder="Search" v-model="searchText"></b-form-input>
-              <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-            </b-nav-form>
-          </b-navbar-nav>
-        </b-row>
-        <b-row>
-          <!-- <portfolio-card
-            class="portfolio-card"
-            v-for="portfolioItem in displayPortfolioItems"
-            :key="portfolioItem.id"
-            :name="portfolioItem.name"
-            :link="portfolioItem.name"
-            :id="portfolioItem.id"
-          ></portfolio-card>-->
-
-          <div
-            v-for="portfolioItem in portfolioItems"
-            :key="portfolioItem.id"
-            class="portfolio-card"
+      <div class="card-row">
+        <div v-for="data in portJson" :key="data.id">
+          <router-link
+            :to="{name: 'portfoliodetail' , params: {id: data.id, name: data.name, image: data.image, description:data.description, score: data.score}}"
+            exact
           >
-            <router-link
-              :to="{name: 'portfolioDetail' , params: {id: portfolioItem.id, name: portfolioItem.name, image: portfolioItem.image, description:portfolioItem.description}}"
-              exact
-            >
-              <div class="card-img">
-                <!-- <img
-                  :src="require('../assets/images/' + portfolioItem.image)"
-                  :alt="portfolioItem.name"
-                />-->
-                <!-- <div
-                  :style="{ backgroundImage: `url(${require(`@/assets/images/${portfolioItemImage}`)})` }"
-                >></div>-->
-                <!-- <img
-                  src="https://images.unsplash.com/photo-1587836382353-27c939f3ff44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80"
-                  alt="portfolioItemName"
-                />-->
-              </div>
-              <div class="card-title">
-                <h2>{{portfolioItem.name}}</h2>
-                <p>{{portfolioItem.image}}</p>
-              </div>
-            </router-link>
-          </div>
-        </b-row>
-      </b-container>
+            <b-card tag="div" class="mb-2">
+              <b-card-img :src="require(`@/assets/images/${data.image}`)" :alt="data.name"></b-card-img>
+              <b-card-body>
+                <b-card-title>
+                  <h2>{{data.name}}</h2>
+                </b-card-title>
+                <b-card-text>{{data.description}}</b-card-text>
+              </b-card-body>
+            </b-card>
+          </router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-// import PortfolioCard from "@/components/PortfolioCard.vue";
-import { mapGetters } from "vuex";
+import portJson from "@/assets/data/portfolio.json";
 
 export default {
-  name: "portfolio",
-  async mounted() {
-    this.fetchData();
-  },
+  name: "about",
   data() {
     return {
-      currentPage: 1,
-      searchText: ""
+      portJson: portJson
     };
-  },
-  components: {
-    // "portfolio-card": PortfolioCard
-  },
-  computed: {
-    ...mapGetters(["portfolioItems", "displayPortfolioItems", "rows"])
-  },
-  methods: {
-    search() {
-      this.$store.dispatch("search", { text: this.searchText });
-    },
-    paginate(currentPage) {
-      this.$store.dispatch("paginate", { currentPage, perPage: this.perPage });
-    },
-    async fetchData() {
-      await this.$store.dispatch("fetchPortfolioItems");
-    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.portfolio-card {
-  border: 1px solid darkslategray;
-  margin: 1em;
-  border-radius: 5px;
-  transition: 0.1s ease-in-out;
+@import "@/assets/custom.scss";
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
+$transition: 0.1s ease-in-out;
 
-    .card-img {
-      img {
-        opacity: 1;
-      }
-    }
+.card-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 
-    a {
+  a {
+    color: inherit;
+
+    &:hover {
       text-decoration: none;
     }
   }
 
-  .card-img {
-    display: block;
-    height: 200px;
-    width: auto;
-    overflow: hidden;
-    object-fit: fill;
+  .card {
+    flex: 0 1 23%;
+    max-width: 18rem;
+    transition: $transition;
 
-    img {
-      height: auto;
-      width: 100%;
-      transition: 0.1s ease-in-out;
-      opacity: 0.9;
+    &:hover {
+      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2),
+        0 3px 12px 0 rgba(0, 0, 0, 0.15);
+      transform: translateY(-0.2rem);
+    }
+
+    &:active {
+      transform: translateY(0rem);
+    }
+
+    .card-body {
+      img {
+        object-fit: fill;
+        width: 100%;
+        height: 100%;
+      }
+
+      &:nth-child(1) {
+        padding: 0;
+      }
+      &:nth-child(2) {
+        position: relative;
+        padding: 0 1.25rem 1.25rem 1.25rem;
+        margin-top: -2.1rem;
+        height: auto;
+        width: 100%;
+
+        h2 {
+          text-shadow: 0 1px #000000;
+          color: white;
+        }
+      }
     }
   }
-
-  .card-title {
-    text-align: center;
-    transition: 0s;
-  }
-}
-.form-control {
-  width: unset;
 }
 </style>

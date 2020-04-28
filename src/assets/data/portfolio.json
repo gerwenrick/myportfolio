@@ -1,0 +1,93 @@
+[
+	{
+		"name": "Project 1",
+		"id": 1,
+		"image": "project-1.jpg",
+		"score": 10,
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, perferendis?"
+	},
+	{
+		"name": "Studie 2",
+		"id": 2,
+		"image": "studie-2.jpg",
+		"score": 10,
+		"description": "Possimus harum animi dolorem quas recusandae laboriosam quibusdam doloribus."
+	},
+	{
+		"name": "Achievement 3",
+		"id": 3,
+		"image": "achievement-3.jpg",
+		"score": 10,
+		"description": "Et suscipit iure, laborum veritatis qui esse earum dignissimos. Blanditiis voluptas natus quaerat."
+	},
+	{
+		"name": "Portfolio 4",
+		"id": 4,
+		"image": "test.jpg",
+		"score": 10,
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, perferendis?"
+	},
+	{
+		"name": "Portfolio 5",
+		"id": 5,
+		"image": "test.jpg",
+		"score": 10,
+		"description": "Possimus harum animi dolorem quas recusandae laboriosam quibusdam doloribus."
+	},
+	{
+		"name": "Portfolio 6",
+		"id": 6,
+		"image": "test.jpg",
+		"score": 10,
+		"description": "Et suscipit iure, laborum veritatis qui esse earum dignissimos. Blanditiis voluptas natus quaerat."
+	},
+	{
+		"name": "Portfolio 7",
+		"id": 7,
+		"image": "test.jpg",
+		"score": 10,
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, perferendis?"
+	},
+	{
+		"name": "Portfolio 8",
+		"id": 8,
+		"image": "test.jpg",
+		"score": 10,
+		"description": "Possimus harum animi dolorem quas recusandae laboriosam quibusdam doloribus."
+	},
+	{
+		"name": "Portfolio 9",
+		"id": 9,
+		"image": "test.jpg",
+		"score": 10,
+		"description": "Et suscipit iure, laborum veritatis qui esse earum dignissimos. Blanditiis voluptas natus quaerat."
+	},
+	{
+		"name": "Portfolio 10",
+		"id": 10,
+		"image": "test.jpg",
+		"score": 10,
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, perferendis?"
+	},
+	{
+		"name": "Portfolio 11",
+		"id": 11,
+		"image": "test.jpg",
+		"score": 10,
+		"description": "Possimus harum animi dolorem quas recusandae laboriosam quibusdam doloribus."
+	},
+	{
+		"name": "Portfolio 12",
+		"id": 12,
+		"image": "test.jpg",
+		"score": 10,
+		"description": "Et suscipit iure, laborum veritatis qui esse earum dignissimos. Blanditiis voluptas natus quaerat."
+	},
+	{
+		"name": "Portfolio 13",
+		"id": 13,
+		"image": "test.jpg",
+		"score": 10,
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, perferendis?"
+	}
+]

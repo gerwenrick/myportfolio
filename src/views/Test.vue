@@ -1,26 +1,26 @@
 <template>
-  <div id="app">
-    <!-- <div class="page" v-if="showSpinner">
-      <b-spinner class="spinner" variant="primary" type="grow" :key="primary"></b-spinner>
-    </div>-->
-    <div id="nav">
-      <top-header />
+  <div>
+    <div id="header">
+      <div class="header-img"></div>
+      <div class="header-block">
+        <div class="header-block-content">
+          <p>Testpage</p>
+        </div>
+      </div>
     </div>
-    <router-view />
-    <bottom-footer />
+
+    <div class="content">
+      <div class="testimonial">
+        <h2>Testing</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem fuga soluta vel quasi non molestias adipisci nemo nulla beatae maiores cum dicta deleniti ea nam illo maxime quibusdam, commodi repudiandae sapiente quod nostrum porro temporibus tempore! Et, iusto autem porro, hic dolor deserunt accusamus in consequatur sapiente mollitia consequuntur. Dolorem eius asperiores iusto aperiam placeat delectus nesciunt ex, ullam reiciendis, rem magnam fugit quo repudiandae veniam. Blanditiis dicta quod dolorem a ipsa dolor fugiat expedita ullam perferendis, iste enim, aliquam aspernatur tempore, rerum voluptatibus dolores quam? Numquam aliquam culpa tempora, dolor porro unde praesentium maiores repudiandae, quos repellendus commodi harum.</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// import { mapGetters } from "vuex";
-import TopHeader from "@/components/TopHeader.vue";
-import Footer from "@/components/Footer.vue";
-
 export default {
-  components: {
-    "top-header": TopHeader,
-    "bottom-footer": Footer
-  }
+  name: "test"
 };
 </script>
 
@@ -79,6 +79,28 @@ body {
   background: 50% 50% / cover;
   overflow: hidden;
 
+  // &::before {
+  //   background: 50% 0% / cover;
+  //   content: "";
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   top: 0;
+  //   display: block;
+  //   background-image: url("https://images.unsplash.com/photo-1578491133524-f33d9c7a7484?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1323&q=80");
+  //   background-size: cover;
+  //   background-repeat: no-repeat;
+  //   transform-origin: center center;
+  //   transform: translateZ(-1px) scale(2);
+  //   z-index: -1;
+  //   height: 100vh;
+  //   width: 100vw;
+  //   overflow: hidden;
+  // }
+
+  
+
   &::after {
     display: block;
     content: "";
@@ -90,26 +112,6 @@ body {
     height: 1000%;
     width: 100%;
     background-color: rgba(250, 250, 250, 0.6);
-  }
-
-  .header-img {
-    background: 50% 0% / cover;
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    display: block;
-    background-image: url("https://images.unsplash.com/photo-1578491133524-f33d9c7a7484?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1323&q=80");
-    background-size: cover;
-    background-repeat: no-repeat;
-    transform-origin: center center;
-    transform: translateZ(-1px) scale(2);
-    z-index: -1;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
   }
 
   .header-block-content {
@@ -145,23 +147,6 @@ body {
   & > div {
     margin: auto;
     max-width: 1200px;
-  }
-}
-
-#portfolio-container {
-  width: 100%;
-
-  .row {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-  }
-
-  .portfolio-card {
-    max-width: 350px;
-    min-width: 250px;
-    width: 33%;
-    flex: 1 1 auto;
   }
 }
 </style>
