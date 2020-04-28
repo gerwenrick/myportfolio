@@ -13,7 +13,7 @@
     <div class="content">
       <section>
         <div class="testimonial">
-          <h2>Testimonial</h2>
+          <h2>Welkom</h2>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem fuga soluta vel quasi non molestias adipisci nemo nulla beatae maiores cum dicta deleniti ea nam illo maxime quibusdam, commodi repudiandae sapiente quod nostrum porro temporibus tempore! Et, iusto autem porro, hic dolor deserunt accusamus in consequatur sapiente mollitia consequuntur. Dolorem eius asperiores iusto aperiam placeat delectus nesciunt ex, ullam reiciendis, rem magnam fugit quo repudiandae veniam. Blanditiis dicta quod dolorem a ipsa dolor fugiat expedita ullam perferendis, iste enim, aliquam aspernatur tempore, rerum voluptatibus dolores quam? Numquam aliquam culpa tempora, dolor porro unde praesentium maiores repudiandae, quos repellendus commodi harum.</p>
         </div>
       </section>
@@ -44,7 +44,7 @@
 
       <section>
         <div class="contactform">
-          <h2>Contact Form</h2>
+          <contact-form />
         </div>
       </section>
     </div>
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-// import PortfolioCard from "@/components/PortfolioCard.vue";
+import ContactForm from "@/components/ContactForm.vue";
 import { mapGetters } from "vuex";
 import portJson from "@/assets/data/portfolio.json";
 
@@ -69,7 +69,7 @@ export default {
     };
   },
   components: {
-    // PortfolioCard
+    "contact-form": ContactForm
   },
   computed: {
     ...mapGetters(["portfolioItems", "homePortfolioItems", "rows"])
