@@ -14,7 +14,8 @@
 
     <div class="content">
       <div class="row">
-        <router-link :to="{name: 'portfolio'}" class="back-btn">Back to overview</router-link>
+        <!-- <router-link :to="{name: 'portfolio'}" class="back-btn">Back to overview</router-link> -->
+        <a @click="goBack" class="back-btn">Back</a>
       </div>
       <div class="row">
         <ul>
@@ -50,6 +51,11 @@ export default {
   },
   computed: {
     ...mapGetters(["portfolioItems", "displayPortfolioItems", "rows"])
+  },
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    }
   }
 };
 </script>

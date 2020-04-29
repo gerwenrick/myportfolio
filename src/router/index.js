@@ -18,7 +18,6 @@ const routes = [
 	{
 		path: '/portfolio',
 		name: 'portfolio',
-		props: true,
 		component: () => import('../views/Portfolio.vue'),
 	},
 	{

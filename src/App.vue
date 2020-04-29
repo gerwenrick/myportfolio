@@ -165,6 +165,7 @@ a {
   color: inherit;
   transition: 0.1s cubic-bezier(0.33, 0.66, 0.66, 1);
   z-index: 1;
+  cursor: pointer;
 
   &::after {
     display: block;
@@ -195,6 +196,9 @@ a {
     align-self: center;
 
     &:hover {
+      color: white !important;
+      z-index: 2;
+
       svg {
         fill: white;
       }
@@ -263,6 +267,7 @@ a {
 
       &:nth-child(1) {
         padding: 0;
+        max-height: 18rem;
       }
       &:nth-child(2) {
         position: relative;
